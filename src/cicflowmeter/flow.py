@@ -155,6 +155,7 @@ class Flow:
             "psh_flag_cnt": flag_count.count("PSH"),
             "ack_flag_cnt": flag_count.count("ACK"),
             "urg_flag_cnt": flag_count.count("URG"),
+            "cwe_flag_count": flag_count.count("CWR"),
             "ece_flag_cnt": flag_count.count("ECE"),
             # Response Time
             "down_up_ratio": packet_count.get_down_up_ratio(),
@@ -180,7 +181,7 @@ class Flow:
         # Duplicated features
         data["fwd_seg_size_avg"] = data["fwd_pkt_len_mean"]
         data["bwd_seg_size_avg"] = data["bwd_pkt_len_mean"]
-        data["cwr_flag_count"] = data["fwd_urg_flags"]
+        data["cwr_flag_count"] = data["cwe_flag_count"]
         data["subflow_fwd_pkts"] = data["tot_fwd_pkts"]
         data["subflow_bwd_pkts"] = data["tot_bwd_pkts"]
         data["subflow_fwd_byts"] = data["totlen_fwd_pkts"]
